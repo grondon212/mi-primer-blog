@@ -1,0 +1,35 @@
+============================================================================================================================================================================================
+MEJORES PRACTICAS AL MOMENTO DE DESARROLLAR EN PYTHON
+============================================================================================================================================================================================
+
+- Instalar virtualenv
+- Crear directorio virtual con virtualenv y la version de python que querramos
+	$ virtualenv --python=python3 project
+- Actualizar la version de pip, el instalador de paquetes python
+	$ python3 -m pip install --upgrade pip
+- Crear un archivo txt para los requerimientos de nuestro proyecto, en este caso con Django==2.0.6 u otra version
+- Instalar los requerimientos que estan en el archivo txt
+	$ pip install -r requirements.txt
+- Crear proyecto django-admin startproject mysite <ruta>
+- Cambiar configuracion de manage.py 
+	ALLOWED_HOSTS = ['127.0.0.1', '.pythonanywhere.com']
+	LANGUAGE_CODE = 'es-us'
+	USE_TZ = 'America/Manaus'
+	STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+- Configurar una base de datos
+	DATABASES = {
+		'default': {
+			'ENGINE': 'django.db.backends.sqlite3',
+			'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+		}
+	}
+- Crear e inicializar la base de datos
+	$ python manage.py migrate
+- Arrancar servidor web 
+	$ python manage.py runserver
+- Crear una aplicacion
+	$ python manage.py startapp blog
+-Agregar aplicacion a Django
+	INSTALLED_APPS = [
+		'blog',
+	]
